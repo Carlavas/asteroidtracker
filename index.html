@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asteroides Cercanos</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Fuentes */
+    body, button, input, label {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* General */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0d1117; /* Fondo oscuro */
+      color: #c9d1d9; /* Texto claro */
+    }
+
+    /* Título */
+    h1 {
+      text-align: center;
+      padding: 1rem;
+      color: #f0eccce8;
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    /* Formulario de filtros */
+    #filters {
+      padding: 1rem;
+      background-color: #161b22; /* Fondo oscuro */
+      color: #c9d1d9;
+      border-bottom: 2px solid #21262d;
+    }
+
+    #filters label {
+      margin-right: 1rem;
+      font-weight: bold;
+    }
+
+    #filters input[type="date"],
+    #filters input[type="number"],
+    #filters button {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border: 1px solid #30363d;
+      border-radius: 5px;
+      background-color: #21262d;
+      color: #c9d1d9;
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    #filters button {
+      background-color: #7d4c99;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #filters button:hover {
+      background-color: #7d4a94;
+    }
+
+    /* Mapa */
+    #map {
+      height: 500px;
+      margin-top: 20px;
+    }
+
+    /* Estilo de la tabla */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* Tabla y celdas */
+    table, th, td {
+      border: none;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    th {
+      background-color: #2d333b;
+      color: #58a6ff;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: #21262d;
+      color: #c9d1d9;
+    }
+
+    /* Efecto hover en celdas */
+    tr:hover td {
+      background-color: #333c47;
+    }
+
+    /* Asegura que la tabla no se quede pegada al mapa */
+    #tabla-asteroides {
+      margin-top: 20px;
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      table {
+        font-size: 0.9rem;
+      }
+
+      #filters input[type="date"],
+      #filters input[type="number"],
+      #filters button {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌌 Asteroid tracker 🌌</h1>
+  <div id="filters">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Filtros existentes -->
+    <label for="start-date">Fecha inicial:</label>
+    <input type="date" id="start-date" />
+
+    <label for="end-date">Fecha final:</label>
+    <input type="date" id="end-date" />
+
+    <label for="min-size">Tamaño mínimo (m):</label>
+    <input type="number" id="min-size" min="0" placeholder="Ej: 10" />
+
+    <!-- Filtro de búsqueda por nombre -->
+    <label for="search-name">Buscar por nombre:</label>
+    <input type="text" id="search-name" placeholder="Ej: Bennu" />
+
+    <button onclick="applyFilters()">Aplicar filtros</button>
+  </div>
+
+  <!-- Mapa -->
+  <div id="map"></div>
+
+  <!-- Tabla de asteroides -->
+  <table id="tabla-asteroides">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tamaño (m)</th>
+        <th>Velocidad (km/h)</th>
+        <th>Fecha de paso</th>
+        <th>Distancia (km)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Filas de asteroides se agregarán dinámicamente aquí -->
+    </tbody>
+  </table>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+  <canvas id="asteroid-chart" width="400" height="200"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <canvas id="asteroid-chart" width="400" height="200"></canvas>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+</body>
+</html>

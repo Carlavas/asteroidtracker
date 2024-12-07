@@ -1,0 +1,223 @@
+/* General */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+  background: url('https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed; /* Fondo de estrellas */
+  background-size: cover; /* Asegura que el fondo cubra toda la pantalla */
+  color: #c9d1d9; /* Texto claro */
+  overflow-x: hidden;
+  height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
+}
+
+h1 {
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #9c33b1; /* Azul claro inspirado en el cielo */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Resplandor en el texto */
+}
+
+/* Contenedor principal */
+#map {
+  height: 90vh; /* Mapa ocupa casi toda la pantalla */
+  border: 2px solid #21262d; /* Borde para resaltar el mapa */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Formulario de filtros */
+#filters {
+  padding: 1rem;
+  background-color: rgba(22, 27, 34, 0.8); /* Fondo oscuro semi-transparente */
+  color: #c9d1d9;
+  border-bottom: 2px solid #21262d;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif; /* Fuente Orbitron */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Efecto de "lucecita" */
+}
+
+#filters label {
+  margin-right: 1rem;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif; /* Fuente Orbitron */
+  color: #58a6ff; /* Azul claro */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Efecto de "lucecita" */
+}
+
+#filters input[type="date"],
+#filters input[type="number"],
+#filters button {
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  background-color: #21262d;
+  color: #c9d1d9;
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif; /* Fuente Orbitron */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Efecto de "lucecita" */
+}
+
+#filters button {
+  background-color: #651c81; /* Verde para botones */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 0px 15px rgba(35, 134, 54, 0.5); /* Sombras para dar profundidad */
+}
+
+#filters button:hover {
+  background-color: #6a1485; /* Verde más intenso */
+}
+
+/* Tabla de asteroides */
+#tabla-asteroides {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra de la tabla */
+}
+
+#tabla-asteroides th, #tabla-asteroides td {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #444;
+  font-size: 1rem;
+  font-family: 'Orbitron', sans-serif; /* Fuente Orbitron */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Efecto de "lucecita" */
+}
+
+#tabla-asteroides th {
+  background-color: #21262d;
+  color: #58a6ff; /* Color de texto azul claro */
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase; /* Para dar un toque de estilo */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Efecto de "lucecita" */
+}
+
+#tabla-asteroides td {
+  background-color: #161b22;
+  color: #c9d1d9;
+}
+
+#tabla-asteroides tr:nth-child(even) {
+  background-color: #1f2329;
+}
+
+#tabla-asteroides tr:hover {
+  background-color: #333;
+  cursor: pointer; /* Hace que el cursor cambie al pasar sobre una fila */
+}
+
+/* Estilos para los marcadores */
+.leaflet-popup-content {
+  color: #161b22; /* Texto oscuro dentro del popup */
+  font-size: 0.9rem;
+}
+
+.leaflet-container {
+  background: rgba(27, 31, 35, 0.8); /* Fondo oscuro por si tarda en cargar */
+  border-radius: 8px;
+}
+
+/* Diseño del buscador y filtros */
+input[type="text"], input[type="date"], input[type="number"], button {
+  font-family: 'Roboto', sans-serif; /* Igual a la del título */
+}
+
+input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus {
+  outline: none;
+  border-color: #238636; /* Verde para campos activos */
+}
+
+/* Diseño de la barra de búsqueda */
+#search-name {
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  font-size: 1.1rem;
+  border: 1px solid #444;
+  background-color: #21262d;
+  color: #c9d1d9;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif; /* Igual a la del título */
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Efecto de "lucecita" */
+}
+
+/* Mejoras en el diseño de botones */
+button {
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #4f0566; /* Verde */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #500346;
+  transform: scale(1.05); /* Efecto de aumento */
+}
+
+button:active {
+  transform: scale(0.98); /* Efecto al presionar */
+}
+
+/* Diseño de los popups de Leaflet */
+.leaflet-popup-content-wrapper {
+  background-color: #dfe6f0;
+  border-radius: 10px;
+}
+
+.leaflet-popup-tip {
+  border-top-color: #21262d; /* Ajustar el color del triángulo del popup */
+}
+
+/* Diseño general */
+input, button, select {
+  font-family: 'Roboto', sans-serif; /* Igual a la del título */
+}
+
+/* Media Query para pantallas más pequeñas (móviles) */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Reducir tamaño de fuente en móviles */
+  }
+
+  #map {
+    height: 60vh; /* Reducir altura del mapa en móviles */
+  }
+
+  #filters {
+    padding: 0.8rem; /* Reducir padding de filtros */
+  }
+
+  #filters input[type="date"],
+  #filters input[type="number"],
+  #filters button {
+    width: 100%; /* Hacer los elementos de filtros más anchos */
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Reducir tamaño de título */
+    padding: 0.5rem;
+  }
+
+  #tabla-asteroides {
+    font-size: 0.9rem; /* Reducir tamaño de la tabla */
+  }
+
+  #search-name {
+    font-size: 1rem; /* Reducir tamaño de la barra de búsqueda */
+  }
+
+  button {
+    font-size: 1rem; /* Reducir tamaño de los botones */
+  }
+
+  .leaflet-container {
+    width: 100%; /* Hacer que el mapa se ajuste al 100% */
+  }
+}
